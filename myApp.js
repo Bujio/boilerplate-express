@@ -8,8 +8,9 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
+const mySecret = process.env["MESSAGE_STYLE"];
+
 app.get("/json", (req, res) => {
-  const mySecret = process.env["MESSAGE_STYLE"];
   if (process.env.MESSAGE_STYLE === "uppercase") {
     res.json({
       message: "Hello json".toUpperCase(),
